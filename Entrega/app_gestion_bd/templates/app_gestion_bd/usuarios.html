@@ -1,0 +1,26 @@
+{% extends "app_gestion_bd/padre.html" %}
+
+{% load static %}
+
+   
+{% block cambios %}
+
+
+<h2 style="color:rgb(0, 0, 0)">USUARIOS</h2>
+<h4 style="color:rgb(88, 86, 86)" >Ingrese los datos del nuevo usuario.</h4><br>
+
+
+<form action="" method="POST" >{% csrf_token %}
+     <table>
+     {{ formulario.as_p }}
+     </table>
+     <input type="submit" value="ACEPTAR" />
+</form>
+
+
+{% if  boton_limpiar == True %}
+<p>{{mensaje}}<br><a href="{% url 'usuarios'  %}" >Limpiar Formulario</a></p>
+{% endif %}
+     
+     
+{% endblock %}

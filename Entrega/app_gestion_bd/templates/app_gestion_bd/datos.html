@@ -1,0 +1,42 @@
+{% extends "app_gestion_bd/padre.html" %}
+
+{% load static %}
+
+   
+{% block cambios %}
+
+<h2 style="color:rgb(0, 0, 0)">BASE DE DATOS</h2>
+
+<form action="" method="GET">
+     
+     <p>Seleccione que datos desea ver:</p>
+    <input type="radio" id="medicos" name="sel_busqueda" value="busq_medicos">
+    <label for="medicos">MEDICOS</label><br>
+    <input type="radio" id="pacientes" name="sel_busqueda" value="busq_pacientes">
+    <label for="pacientes">PACIENTES</label><br>
+    <input type="radio" id="usuarios" name="sel_busqueda" value="busq_usuarios">
+    <label for="usuarios">USUARIOS</label>
+   
+     <p></p><input type="submit" value="Aceptar"></form>
+   </form><br>
+
+
+
+{% if dibujar_datos == True %}
+
+<h3>{{mensaje}}</h3>    
+ 
+{% for dato in datos_solicitados %}
+
+     {{dato}} <br>
+
+ {% endfor %}
+
+{% endif %}
+
+{% if  boton_limpiar == True %}
+<p><br><a href="{% url 'datos'  %}" >Limpiar Formulario</a></p>
+{% endif %}
+
+{% endblock %}
+

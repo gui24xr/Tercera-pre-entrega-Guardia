@@ -1,0 +1,44 @@
+{% extends "app_gestion_bd/padre.html" %}
+
+{% load static %}
+
+   
+{% block cambios %}
+
+<h2 style="color:rgb(0, 0, 0)">BUSQUEDA</h2>
+
+<form action="" method="GET">
+     
+     <p>Seleccione que desea buscar:</p>
+    <input type="radio" id="medicos" name="sel_busqueda" value="busq_medicos">
+    <label for="medicos">MEDICOS</label><br>
+    <input type="radio" id="pacientes" name="sel_busqueda" value="busq_pacientes">
+    <label for="pacientes">PACIENTES</label><br>
+    <input type="radio" id="usuarios" name="sel_busqueda" value="busq_usuarios">
+    <label for="usuarios">USUARIOS</label>
+   
+     <p></p><input type="submit" value="Aceptar"></form>
+   </form><br>
+
+
+
+{% if dibujar_formulario == True %}
+     
+<form action="" method="POST" >{% csrf_token %}
+
+     <table>
+     {{ formulario_busqueda.as_p }}
+     </table>
+     <input type="submit" value="Buscar" />
+
+</form>
+
+{% endif %}
+
+{% if  boton_limpiar == True %}
+<p> {{ resultado_busqueda }} <br><a href="{% url 'busqueda'  %}" >Limpiar Formulario</a></p>
+{% endif %}
+
+{% endblock %}
+
+

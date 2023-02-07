@@ -1,0 +1,26 @@
+{% extends "app_gestion_bd/padre.html" %}
+
+{% load static %}
+
+   
+{% block cambios %}
+
+
+<h2 style="color:rgb(0, 0, 0)">GUIA DE REFERENCIAS DE SISTEMA DE CONSULTORIOS</h2>
+
+<br>
+<h3>Medicos</h3>
+
+
+
+
+{% include tabla_medicos %}
+
+<br>
+<br>
+<h3>Obras Sociales</h3>
+{% include tabla_obra_social %}
+
+
+   
+{% endblock %}
